@@ -18,6 +18,7 @@ public class InstitutionServiceImpl implements InstitutionService{
 
     @Override
     public List<Institution> findAll() {
+        log.debug("Finding all institutions");
         return institutionRepository.findAll();
     }
 }

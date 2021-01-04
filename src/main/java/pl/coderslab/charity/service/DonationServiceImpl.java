@@ -14,6 +14,7 @@ public class DonationServiceImpl implements DonationService {
 
     @Override
     public int getSumOfBags() {
+        log.debug("Getting sum of donated bags");
         Integer bags = donationRepository.sumOfBags();
         if(bags==null) bags=0;
         return bags;
@@ -21,6 +22,7 @@ public class DonationServiceImpl implements DonationService {
 
     @Override
     public long getDonationCount() {
+        log.debug("Getting count of donations");
         return donationRepository.count();
     }
 }
