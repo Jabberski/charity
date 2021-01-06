@@ -29,7 +29,7 @@ public class DonationController {
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("institutions", institutionService.findAll());
         model.addAttribute("donation", new Donation());
-        return "/form/form";
+        return "/donation/form";
     }
 
     @PostMapping("")

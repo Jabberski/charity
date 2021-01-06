@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <body>
-    <header class="header--main-page" th:replace="/index/header.html :: header">
+    <header class="header--main-page" th:replace="/elements/header.html :: header">
 
     </header>
 
@@ -79,13 +79,13 @@
           <li>
             <div class="col" th:each="institution, iter:${institutionsEven}">
               <div class="title" th:text="${institution.name}"></div>
-              <div class="subtitle" th:text="${institution.description}"></div>
+              <div class="subtitle" th:text="${'Cel i misja: ' + institution.description}"></div>
             </div>
           </li>
           <li>
             <div class="col" th:each="institution, iter:${institutionsOdd}">
               <div class="title" th:text="${institution.name}"></div>
-              <div class="subtitle" th:text="${institution.description}"></div>
+              <div class="subtitle" th:text="${'Cel i misja: ' + institution.description}"></div>
             </div>
           </li>
 
@@ -94,10 +94,10 @@
 
     </section>
 
-    <footer th:replace="/index/footer.html :: footer">
+    <footer th:replace="/elements/footer.html :: footer">
 
     </footer>
 
-    <script src="/js/app.js"></script>
+    <script type="text/javascript" th:src="@{/js/cssandjs/actions.js}"></script>
   </body>
 </html>
