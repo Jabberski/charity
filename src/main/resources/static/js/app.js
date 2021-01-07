@@ -171,4 +171,43 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+
+  const buttonSummary = document.getElementById("summary");
+  buttonSummary.addEventListener("click", function (){
+    const sack = document.querySelector("#bags").value;
+    let categories = document.querySelectorAll('input[name="categories"]:checked ~ span.description');
+    let sumOfCategories = "";
+    let category;
+    for(let i=0; categories[i]; ++i){
+      if(categories[i].innerHTML != null){
+        category = categories[i].innerHTML;
+      }
+      sumOfCategories += category+"; ";
+    }
+    sumOfCategories = sumOfCategories.substring(0,sumOfCategories.length-2);
+    document.getElementById("summary-bags").innerHTML = sack+ " worków zawierających: "+sumOfCategories;
+
+    const institution = document.querySelector('input[name="institution"]:checked ~ span.description div.title').innerHTML;
+    document.getElementById("summary-institution").innerHTML = institution;
+
+    const street = document.querySelector('#street').value;
+    document.getElementById("summary-street").innerHTML = street;
+    const city = document.querySelector('#city').value;
+    document.getElementById("summary-city").innerHTML = city;
+    const zipCode = document.querySelector('#zip').value;
+    document.getElementById("summary-zip").innerHTML = zipCode;
+    const phone = document.querySelector('#phone').value;
+    document.getElementById("summary-phone").innerHTML = phone;
+    const pickUpDate = document.querySelector('#date').value;
+    document.getElementById("summary-date").innerHTML = pickUpDate;
+    const pickUpTime = document.querySelector('#time').value;
+    document.getElementById("summary-time").innerHTML = pickUpTime;
+    const pickUpComment = document.querySelector('#comment').value;
+    if (pickUpComment === ""){
+      document.getElementById("summary-comment").innerHTML = "Brak uwag"
+    } else {
+      document.getElementById("summary-comment").innerHTML = pickUpComment;
+    }
+  })
+
 });

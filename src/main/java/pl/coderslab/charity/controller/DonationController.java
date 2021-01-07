@@ -32,13 +32,12 @@ public class DonationController {
         model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("institutions", institutionService.findAll());
         model.addAttribute("donation", new Donation());
-        model.addAttribute("localDateTime", LocalDateTime.now());
         return "/donation/form";
     }
 
     @PostMapping("")
     public String saveDonation(Donation donation) {
         donationService.saveDonation(donation);
-        return "redirect: /donate/confirm";
+        return "redirect:donate/confirm";
     }
 }
