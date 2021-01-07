@@ -12,6 +12,7 @@ import pl.coderslab.charity.service.CategoryService;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -39,5 +40,10 @@ public class DonationController {
     public String saveDonation(Donation donation) {
         donationService.saveDonation(donation);
         return "redirect:donate/confirm";
+    }
+
+    @GetMapping("/confirm")
+    public String donationConfirmation(){
+        return "/donation/form-confirmation";
     }
 }
